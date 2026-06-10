@@ -6,37 +6,36 @@ separate private repository.
 
 Live pages:
 
-- Support / home — <https://deario.app/>
-- Privacy Policy — <https://deario.app/privacy>
+- Support / home — <https://kds2k2.github.io/deario-web/>
+- Privacy Policy — <https://kds2k2.github.io/deario-web/privacy/>
 
 ## Structure
 
 ```
-index.html          → support page + FAQ      (deario.app/)
-privacy/index.html  → privacy policy          (deario.app/privacy)
-CNAME               → custom domain for GitHub Pages
+index.html          → support page + FAQ   (/)
+privacy/index.html  → privacy policy        (/privacy/)
 .nojekyll           → serve files as-is, skip Jekyll processing
 ```
 
-Links between pages are **relative**, so the site also works correctly on the
-default `https://<user>.github.io/deario-site/` URL before the custom domain is
-attached.
+Links between pages are **relative**, so they work both on the default
+`github.io` URL and on a custom domain if one is added later.
 
 ## Publishing (GitHub Pages)
 
-1. Push this repo to GitHub as a **public** repository.
-2. In the repo: **Settings → Pages → Build and deployment**.
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` / `/ (root)`
-3. (Custom domain) Under **Settings → Pages → Custom domain**, enter `deario.app`,
-   then add these DNS records at your domain registrar:
-   - Four `A` records for the apex pointing at GitHub Pages:
-     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - (optional) a `CNAME` record for `www` → `<user>.github.io`
-4. Enable **Enforce HTTPS** once the certificate is issued.
+Already enabled: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
+Pushing to `main` redeploys automatically within a minute or two.
 
-If you are **not** using the custom domain yet, delete the `CNAME` file and the
-site will be served at `https://<user>.github.io/deario-site/`.
+## Optional: custom domain later
+
+To move to a domain like `deario.app`:
+
+1. Add a `CNAME` file containing the domain (e.g. `deario.app`).
+2. Add four apex `A` records at your registrar pointing to GitHub Pages:
+   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+3. Set the domain under **Settings → Pages → Custom domain** and tick
+   **Enforce HTTPS**.
+
+Then update `privacyPolicyURL` in the app's `SettingsViewModel` to match.
 
 ## Contact
 
