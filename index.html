@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deario — Support</title>
+  <meta name="description" content="Support and help for Deario, the app that helps you remember the important dates of the people who matter." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1c1c1e;
+      --muted: #6b6b70;
+      --accent: #4a90e2;
+      --card: #f5f5f7;
+      --border: #e5e5ea;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --fg: #f2f2f7;
+        --muted: #9a9aa0;
+        --accent: #5aa0f2;
+        --card: #1c1c1e;
+        --border: #2c2c2e;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+    header { text-align: center; margin-bottom: 48px; }
+    .logo {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #357ABD);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 36px; margin-bottom: 16px;
+    }
+    h1 { font-size: 30px; margin: 0 0 8px; letter-spacing: -0.02em; }
+    .tagline { color: var(--muted); font-size: 17px; margin: 0; }
+    h2 { font-size: 22px; margin: 40px 0 8px; letter-spacing: -0.01em; }
+    .faq { margin-top: 24px; }
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px 18px;
+      margin-bottom: 12px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 14px 0;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; }
+    details[open] summary::after { content: "–"; }
+    details p { margin: 0 0 16px; color: var(--fg); }
+    .contact {
+      margin-top: 40px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .contact a.btn {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 999px;
+    }
+    a { color: var(--accent); }
+    footer {
+      margin-top: 56px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">🎂</div>
+      <h1>Deario Support</h1>
+      <p class="tagline">Never forget the dates of the people who matter.</p>
+    </header>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I add a person or an event?</summary>
+        <p>On the <strong>People</strong> tab, tap the <strong>+</strong> button to add someone. Open their profile and tap the <strong>+</strong> in the Events section to add a birthday, anniversary, or any custom date. Each event can have its own reminders.</p>
+      </details>
+
+      <details>
+        <summary>How do reminders work?</summary>
+        <p>Each event carries its own reminder lead times (for example, on the day, and 7 days before). Reminders are delivered as local notifications around 9:00&nbsp;AM on the day they're due. Make sure you allow notifications when Deario asks — you can also enable them later in <strong>iOS Settings → Deario → Notifications</strong>.</p>
+      </details>
+
+      <details>
+        <summary>I'm not receiving notifications. What should I check?</summary>
+        <p>First, confirm notifications are enabled in <strong>iOS Settings → Deario → Notifications</strong>. Then open the event and check that at least one reminder is turned on. Annual events automatically roll forward to the next year after they pass.</p>
+      </details>
+
+      <details>
+        <summary>I deleted a person or event by accident. Can I undo it?</summary>
+        <p>Yes. Right after deleting, an <strong>Undo</strong> banner appears for a few seconds at the bottom of the screen — tap it to restore the item and its reminders. Once the banner disappears, the deletion is permanent.</p>
+      </details>
+
+      <details>
+        <summary>Is my data private? Is it backed up?</summary>
+        <p>All of your data stays on your device. Deario has no account system and does not upload your people, dates, notes, or photos to any server. Your data is included in your normal device backups (iCloud or computer), which are managed by Apple. See our <a href="privacy/">Privacy Policy</a> for details.</p>
+      </details>
+
+      <details>
+        <summary>What are tips, and do they unlock features?</summary>
+        <p>Tips are an optional way to support Deario's development. They don't unlock any extra features — everything in the app is available to everyone. Payments are handled securely by Apple; the developer never sees your payment details.</p>
+      </details>
+
+      <details>
+        <summary>How do I change the app's language or theme?</summary>
+        <p>Open the <strong>Settings</strong> tab to switch between light/dark/system appearance and to choose your preferred language.</p>
+      </details>
+    </div>
+
+    <div class="contact">
+      <h2 style="margin-top:0">Still need help?</h2>
+      <p>We're happy to help with anything that isn't covered above.</p>
+      <a class="btn" href="mailto:deario.support@gmail.com?subject=Deario%20Support">Email deario.support@gmail.com</a>
+    </div>
+
+    <footer>
+      <p>Deario · <a href="privacy/">Privacy Policy</a></p>
+    </footer>
+  </div>
+</body>
+</html>
