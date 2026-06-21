@@ -33,7 +33,30 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+    .wrap { position: relative; max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+    .lang-switch {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      display: inline-flex;
+      gap: 2px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .lang-switch button.active { background: var(--accent); color: #fff; }
     h1 { font-size: 30px; margin: 0 0 4px; letter-spacing: -0.02em; }
     .updated { color: var(--muted); font-size: 15px; margin: 0 0 32px; }
     h2 { font-size: 20px; margin: 36px 0 8px; letter-spacing: -0.01em; }
@@ -59,41 +82,113 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 10 June 2026</p>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="uk">УКР</button>
+    </div>
 
-    <p class="lead"><strong>Short version:</strong> Deario keeps everything on your device. We don't have servers, we don't have accounts, and we never collect, sell, or share your personal information.</p>
+    <h1 data-i18n="title">Privacy Policy</h1>
+    <p class="updated" data-i18n="updated">Last updated: 10 June 2026</p>
 
-    <h2>Information we collect</h2>
-    <p><strong>None.</strong> Deario does not collect any personal information. The content you create in the app — the people you add, their important dates, your notes, and any photos you choose — is stored only on your device using Apple's on-device database. It is never transmitted to us or to any third party.</p>
+    <p class="lead" data-i18n="lead"><strong>Short version:</strong> Deario keeps everything on your device. We don't have servers, we don't have accounts, and we never collect, sell, or share your personal information.</p>
 
-    <h2>Photos</h2>
-    <p>If you add a photo to a person, Deario reads only the image you specifically pick and stores it inside the app's local database on your device. Deario does not access your wider photo library, and your photos are never uploaded anywhere.</p>
+    <h2 data-i18n="s1.h">Information we collect</h2>
+    <p data-i18n="s1.p"><strong>None.</strong> Deario does not collect any personal information. The content you create in the app — the people you add, their important dates, your notes, and any photos you choose — is stored only on your device using Apple's on-device database. It is never transmitted to us or to any third party.</p>
 
-    <h2>Notifications</h2>
-    <p>Reminders are scheduled and delivered entirely on your device as local notifications. No reminder content leaves your device, and granting notification permission does not give us any information about you.</p>
+    <h2 data-i18n="s2.h">Photos</h2>
+    <p data-i18n="s2.p">If you add a photo to a person, Deario reads only the image you specifically pick and stores it inside the app's local database on your device. Deario does not access your wider photo library, and your photos are never uploaded anywhere.</p>
 
-    <h2>Tips and purchases</h2>
-    <p>Deario offers optional tips to support development. These purchases are processed securely by Apple through the App Store. Apple handles all payment information — the developer does not receive your name, card details, or other payment data. Tips do not unlock features and involve no collection of personal data by us.</p>
+    <h2 data-i18n="s3.h">Notifications</h2>
+    <p data-i18n="s3.p">Reminders are scheduled and delivered entirely on your device as local notifications. No reminder content leaves your device, and granting notification permission does not give us any information about you.</p>
 
-    <h2>Backups</h2>
-    <p>Because your data lives on your device, it may be included in the backups you make through iCloud or your computer. Those backups are controlled by you and managed by Apple under Apple's privacy terms. Deario has no access to them.</p>
+    <h2 data-i18n="s4.h">Tips and purchases</h2>
+    <p data-i18n="s4.p">Deario offers optional tips to support development. These purchases are processed securely by Apple through the App Store. Apple handles all payment information — the developer does not receive your name, card details, or other payment data. Tips do not unlock features and involve no collection of personal data by us.</p>
 
-    <h2>Analytics and tracking</h2>
-    <p>Deario contains no analytics, no advertising, and no third-party tracking software. We do not build profiles of you or your contacts, and there is no cross-app or cross-site tracking of any kind.</p>
+    <h2 data-i18n="s5.h">Backups</h2>
+    <p data-i18n="s5.p">Because your data lives on your device, it may be included in the backups you make through iCloud or your computer. Those backups are controlled by you and managed by Apple under Apple's privacy terms. Deario has no access to them.</p>
 
-    <h2>Children's privacy</h2>
-    <p>Deario does not collect personal information from anyone, including children. No account or personal detail is required to use the app.</p>
+    <h2 data-i18n="s6.h">Analytics and tracking</h2>
+    <p data-i18n="s6.p">Deario contains no analytics, no advertising, and no third-party tracking software. We do not build profiles of you or your contacts, and there is no cross-app or cross-site tracking of any kind.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>If this policy ever changes, the updated version will be posted on this page with a new "Last updated" date. Because Deario doesn't collect data, we don't anticipate material changes.</p>
+    <h2 data-i18n="s7.h">Children's privacy</h2>
+    <p data-i18n="s7.p">Deario does not collect personal information from anyone, including children. No account or personal detail is required to use the app.</p>
 
-    <h2>Contact</h2>
-    <p>Questions about your privacy or this policy? Email <a href="mailto:deario.support@gmail.com?subject=Deario%20Privacy">deario.support@gmail.com</a>.</p>
+    <h2 data-i18n="s8.h">Changes to this policy</h2>
+    <p data-i18n="s8.p">If this policy ever changes, the updated version will be posted on this page with a new "Last updated" date. Because Deario doesn't collect data, we don't anticipate material changes.</p>
+
+    <h2 data-i18n="s9.h">Contact</h2>
+    <p data-i18n="s9.p">Questions about your privacy or this policy? Email <a href="mailto:deario.support@gmail.com?subject=Deario%20Privacy">deario.support@gmail.com</a>.</p>
 
     <footer>
-      <p><a href="../">← Back to Deario Support</a></p>
+      <p><a href="../" data-i18n="footer.back">← Back to Deario Support</a></p>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      var uk = {
+        "meta.title": "Deario — Політика конфіденційності",
+        "meta.desc": "Політика конфіденційності Deario. Deario зберігає всі ваші дані на вашому пристрої та не збирає й не передає особисту інформацію.",
+        "title": "Політика конфіденційності",
+        "updated": "Останнє оновлення: 10 червня 2026",
+        "lead": "<strong>Коротко:</strong> Deario зберігає все на вашому пристрої. У нас немає серверів, немає акаунтів, і ми ніколи не збираємо, не продаємо та не передаємо вашу особисту інформацію.",
+        "s1.h": "Які дані ми збираємо",
+        "s1.p": "<strong>Жодних.</strong> Deario не збирає жодної особистої інформації. Вміст, який ви створюєте в застосунку — люди, яких ви додаєте, їхні важливі дати, ваші нотатки та будь-які обрані фото — зберігається лише на вашому пристрої за допомогою локальної бази даних Apple. Він ніколи не передається нам чи будь-якій третій стороні.",
+        "s2.h": "Фото",
+        "s2.p": "Якщо ви додаєте фото до людини, Deario зчитує лише те зображення, яке ви обрали, і зберігає його в локальній базі даних застосунку на вашому пристрої. Deario не має доступу до всієї вашої медіатеки, а ваші фото ніколи нікуди не завантажуються.",
+        "s3.h": "Сповіщення",
+        "s3.p": "Нагадування плануються та надходять повністю на вашому пристрої як локальні сповіщення. Вміст нагадувань не залишає ваш пристрій, а надання дозволу на сповіщення не дає нам жодної інформації про вас.",
+        "s4.h": "Чайові та покупки",
+        "s4.p": "Deario пропонує необов'язкові чайові на підтримку розробки. Ці покупки безпечно обробляє Apple через App Store. Apple опрацьовує всю платіжну інформацію — розробник не отримує вашого імені, даних картки чи інших платіжних даних. Чайові не відкривають функцій і не передбачають збору особистих даних з нашого боку.",
+        "s5.h": "Резервні копії",
+        "s5.p": "Оскільки ваші дані зберігаються на пристрої, вони можуть входити до резервних копій, які ви робите через iCloud або комп'ютер. Цими копіями керуєте ви, а обслуговує їх Apple згідно з умовами конфіденційності Apple. Deario не має до них доступу.",
+        "s6.h": "Аналітика та відстеження",
+        "s6.p": "Deario не містить жодної аналітики, реклами чи стороннього програмного забезпечення для відстеження. Ми не створюємо профілів про вас чи ваші контакти, і немає жодного міжзастосункового чи міжсайтового відстеження.",
+        "s7.h": "Конфіденційність дітей",
+        "s7.p": "Deario не збирає особистої інформації ні від кого, зокрема від дітей. Для користування застосунком не потрібен акаунт чи будь-які особисті дані.",
+        "s8.h": "Зміни до цієї політики",
+        "s8.p": "Якщо ця політика колись зміниться, оновлену версію буде опубліковано на цій сторінці з новою датою «Останнє оновлення». Оскільки Deario не збирає даних, ми не очікуємо суттєвих змін.",
+        "s9.h": "Контакти",
+        "s9.p": "Маєте запитання щодо вашої конфіденційності чи цієї політики? Напишіть на <a href=\"mailto:deario.support@gmail.com?subject=Deario%20Privacy\">deario.support@gmail.com</a>.",
+        "footer.back": "← Назад до підтримки Deario"
+      };
+
+      var nodes = document.querySelectorAll('[data-i18n]');
+      var metaDesc = document.querySelector('meta[name="description"]');
+
+      // Capture the in-page English as the base dictionary.
+      var en = {};
+      nodes.forEach(function (el) { en[el.getAttribute('data-i18n')] = el.innerHTML; });
+      en["meta.title"] = document.title;
+      en["meta.desc"] = metaDesc ? metaDesc.getAttribute('content') : '';
+
+      var dicts = { en: en, uk: uk };
+
+      function apply(lang) {
+        var dict = dicts[lang] || dicts.en;
+        document.documentElement.lang = lang;
+        nodes.forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.innerHTML = dict[key];
+        });
+        if (dict["meta.title"]) document.title = dict["meta.title"];
+        if (metaDesc && dict["meta.desc"]) metaDesc.setAttribute('content', dict["meta.desc"]);
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        try { localStorage.setItem('deario-lang', lang); } catch (e) {}
+      }
+
+      var saved;
+      try { saved = localStorage.getItem('deario-lang'); } catch (e) {}
+      var initial = saved || ((navigator.language || '').toLowerCase().indexOf('uk') === 0 ? 'uk' : 'en');
+
+      document.querySelectorAll('.lang-switch button').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+      });
+
+      apply(initial);
+    })();
+  </script>
 </body>
 </html>

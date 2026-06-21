@@ -20,6 +20,11 @@ privacy/index.html  → privacy policy        (/privacy/)
 Links between pages are **relative**, so they work both on the default
 `github.io` URL and on a custom domain if one is added later.
 
+Both pages are **bilingual (English / Ukrainian)**. A small `EN / УКР`
+switch in the top-right toggles the text in place via JavaScript — the URLs
+and all links stay the same. The language is auto-detected from the browser
+on first visit and remembered in `localStorage` across both pages.
+
 ## Publishing (GitHub Pages)
 
 Already enabled: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.

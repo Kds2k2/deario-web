@@ -33,7 +33,30 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+    .wrap { position: relative; max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+    .lang-switch {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      display: inline-flex;
+      gap: 2px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .lang-switch button.active { background: var(--accent); color: #fff; }
     header { text-align: center; margin-bottom: 48px; }
     .logo {
       width: 72px; height: 72px; border-radius: 18px;
@@ -92,59 +115,130 @@
 </head>
 <body>
   <div class="wrap">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="uk">УКР</button>
+    </div>
+
     <header>
       <div class="logo">🎂</div>
-      <h1>Deario Support</h1>
-      <p class="tagline">Never forget the dates of the people who matter.</p>
+      <h1 data-i18n="hero.title">Deario Support</h1>
+      <p class="tagline" data-i18n="hero.tagline">Never forget the dates of the people who matter.</p>
     </header>
 
-    <h2>Frequently asked questions</h2>
+    <h2 data-i18n="faq.heading">Frequently asked questions</h2>
     <div class="faq">
       <details>
-        <summary>How do I add a person or an event?</summary>
-        <p>On the <strong>People</strong> tab, tap the <strong>+</strong> button to add someone. Open their profile and tap the <strong>+</strong> in the Events section to add a birthday, anniversary, or any custom date. Each event can have its own reminders.</p>
+        <summary data-i18n="faq.q1">How do I add a person or an event?</summary>
+        <p data-i18n="faq.a1">On the <strong>People</strong> tab, tap the <strong>+</strong> button to add someone. Open their profile and tap the <strong>+</strong> in the Events section to add a birthday, anniversary, or any custom date. Each event can have its own reminders.</p>
       </details>
 
       <details>
-        <summary>How do reminders work?</summary>
-        <p>Each event carries its own reminder lead times (for example, on the day, and 7 days before). Reminders are delivered as local notifications around 9:00&nbsp;AM on the day they're due. Make sure you allow notifications when Deario asks — you can also enable them later in <strong>iOS Settings → Deario → Notifications</strong>.</p>
+        <summary data-i18n="faq.q2">How do reminders work?</summary>
+        <p data-i18n="faq.a2">Each event carries its own reminder lead times (for example, on the day, and 7 days before). Reminders are delivered as local notifications around 9:00&nbsp;AM on the day they're due. Make sure you allow notifications when Deario asks — you can also enable them later in <strong>iOS Settings → Deario → Notifications</strong>.</p>
       </details>
 
       <details>
-        <summary>I'm not receiving notifications. What should I check?</summary>
-        <p>First, confirm notifications are enabled in <strong>iOS Settings → Deario → Notifications</strong>. Then open the event and check that at least one reminder is turned on. Annual events automatically roll forward to the next year after they pass.</p>
+        <summary data-i18n="faq.q3">I'm not receiving notifications. What should I check?</summary>
+        <p data-i18n="faq.a3">First, confirm notifications are enabled in <strong>iOS Settings → Deario → Notifications</strong>. Then open the event and check that at least one reminder is turned on. Annual events automatically roll forward to the next year after they pass.</p>
       </details>
 
       <details>
-        <summary>I deleted a person or event by accident. Can I undo it?</summary>
-        <p>Yes. Right after deleting, an <strong>Undo</strong> banner appears for a few seconds at the bottom of the screen — tap it to restore the item and its reminders. Once the banner disappears, the deletion is permanent.</p>
+        <summary data-i18n="faq.q4">I deleted a person or event by accident. Can I undo it?</summary>
+        <p data-i18n="faq.a4">Yes. Right after deleting, an <strong>Undo</strong> banner appears for a few seconds at the bottom of the screen — tap it to restore the item and its reminders. Once the banner disappears, the deletion is permanent.</p>
       </details>
 
       <details>
-        <summary>Is my data private? Is it backed up?</summary>
-        <p>All of your data stays on your device. Deario has no account system and does not upload your people, dates, notes, or photos to any server. Your data is included in your normal device backups (iCloud or computer), which are managed by Apple. See our <a href="privacy/">Privacy Policy</a> for details.</p>
+        <summary data-i18n="faq.q5">Is my data private? Is it backed up?</summary>
+        <p data-i18n="faq.a5">All of your data stays on your device. Deario has no account system and does not upload your people, dates, notes, or photos to any server. Your data is included in your normal device backups (iCloud or computer), which are managed by Apple. See our <a href="privacy/">Privacy Policy</a> for details.</p>
       </details>
 
       <details>
-        <summary>What are tips, and do they unlock features?</summary>
-        <p>Tips are an optional way to support Deario's development. They don't unlock any extra features — everything in the app is available to everyone. Payments are handled securely by Apple; the developer never sees your payment details.</p>
+        <summary data-i18n="faq.q6">What are tips, and do they unlock features?</summary>
+        <p data-i18n="faq.a6">Tips are an optional way to support Deario's development. They don't unlock any extra features — everything in the app is available to everyone. Payments are handled securely by Apple; the developer never sees your payment details.</p>
       </details>
 
       <details>
-        <summary>How do I change the app's language or theme?</summary>
-        <p>Open the <strong>Settings</strong> tab to switch between light/dark/system appearance and to choose your preferred language.</p>
+        <summary data-i18n="faq.q7">How do I change the app's language or theme?</summary>
+        <p data-i18n="faq.a7">Open the <strong>Settings</strong> tab to switch between light/dark/system appearance and to choose your preferred language.</p>
       </details>
     </div>
 
     <div class="contact">
-      <h2 style="margin-top:0">Still need help?</h2>
-      <p>We're happy to help with anything that isn't covered above.</p>
-      <a class="btn" href="mailto:deario.support@gmail.com?subject=Deario%20Support">Email deario.support@gmail.com</a>
+      <h2 style="margin-top:0" data-i18n="contact.heading">Still need help?</h2>
+      <p data-i18n="contact.text">We're happy to help with anything that isn't covered above.</p>
+      <a class="btn" href="mailto:deario.support@gmail.com?subject=Deario%20Support" data-i18n="contact.button">Email deario.support@gmail.com</a>
     </div>
 
     <footer>
-      <p>Deario · <a href="privacy/">Privacy Policy</a></p>
+      <p data-i18n="footer">Deario · <a href="privacy/">Privacy Policy</a></p>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      var uk = {
+        "meta.title": "Deario — Підтримка",
+        "meta.desc": "Підтримка та допомога для Deario — застосунку, який допомагає пам'ятати важливі дати близьких вам людей.",
+        "hero.title": "Підтримка Deario",
+        "hero.tagline": "Ніколи не забувайте про дати важливих для вас людей.",
+        "faq.heading": "Поширені запитання",
+        "faq.q1": "Як додати людину або подію?",
+        "faq.a1": "На вкладці <strong>Люди</strong> натисніть кнопку <strong>+</strong>, щоб додати когось. Відкрийте профіль людини та натисніть <strong>+</strong> у розділі «Події», щоб додати день народження, річницю або будь-яку власну дату. Кожна подія може мати власні нагадування.",
+        "faq.q2": "Як працюють нагадування?",
+        "faq.a2": "Кожна подія має власний час попередження (наприклад, у день події та за 7 днів до неї). Нагадування надходять як локальні сповіщення приблизно о 9:00&nbsp;ранку в день, коли вони мають спрацювати. Дозвольте сповіщення, коли Deario про це запитає — увімкнути їх можна й пізніше в розділі <strong>Налаштування iOS → Deario → Сповіщення</strong>.",
+        "faq.q3": "Я не отримую сповіщень. Що варто перевірити?",
+        "faq.a3": "Спершу переконайтеся, що сповіщення увімкнено в розділі <strong>Налаштування iOS → Deario → Сповіщення</strong>. Потім відкрийте подію та перевірте, що увімкнено хоча б одне нагадування. Щорічні події автоматично переносяться на наступний рік після того, як минають.",
+        "faq.q4": "Я випадково видалив(ла) людину або подію. Чи можна це скасувати?",
+        "faq.a4": "Так. Одразу після видалення внизу екрана на кілька секунд з'являється банер <strong>Скасувати</strong> — натисніть його, щоб відновити елемент та його нагадування. Коли банер зникне, видалення стає остаточним.",
+        "faq.q5": "Чи мої дані приватні? Чи є їхня резервна копія?",
+        "faq.a5": "Усі ваші дані залишаються на вашому пристрої. Deario не має системи акаунтів і не завантажує ваших людей, дати, нотатки чи фото на жоден сервер. Ваші дані входять до звичайних резервних копій пристрою (iCloud або комп'ютер), якими керує Apple. Докладніше — у нашій <a href=\"privacy/\">Політиці конфіденційності</a>.",
+        "faq.q6": "Що таке чайові та чи відкривають вони функції?",
+        "faq.a6": "Чайові — це необов'язковий спосіб підтримати розробку Deario. Вони не відкривають жодних додаткових функцій — усе в застосунку доступне кожному. Платежі безпечно обробляє Apple; розробник ніколи не бачить ваших платіжних даних.",
+        "faq.q7": "Як змінити мову або тему застосунку?",
+        "faq.a7": "Відкрийте вкладку <strong>Налаштування</strong>, щоб перемкнути світлий/темний/системний вигляд та обрати бажану мову.",
+        "contact.heading": "Досі потрібна допомога?",
+        "contact.text": "Ми радо допоможемо з усім, що не охоплено вище.",
+        "contact.button": "Написати на deario.support@gmail.com",
+        "footer": "Deario · <a href=\"privacy/\">Політика конфіденційності</a>"
+      };
+
+      var nodes = document.querySelectorAll('[data-i18n]');
+      var metaDesc = document.querySelector('meta[name="description"]');
+
+      // Capture the in-page English as the base dictionary.
+      var en = {};
+      nodes.forEach(function (el) { en[el.getAttribute('data-i18n')] = el.innerHTML; });
+      en["meta.title"] = document.title;
+      en["meta.desc"] = metaDesc ? metaDesc.getAttribute('content') : '';
+
+      var dicts = { en: en, uk: uk };
+
+      function apply(lang) {
+        var dict = dicts[lang] || dicts.en;
+        document.documentElement.lang = lang;
+        nodes.forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.innerHTML = dict[key];
+        });
+        if (dict["meta.title"]) document.title = dict["meta.title"];
+        if (metaDesc && dict["meta.desc"]) metaDesc.setAttribute('content', dict["meta.desc"]);
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        try { localStorage.setItem('deario-lang', lang); } catch (e) {}
+      }
+
+      var saved;
+      try { saved = localStorage.getItem('deario-lang'); } catch (e) {}
+      var initial = saved || ((navigator.language || '').toLowerCase().indexOf('uk') === 0 ? 'uk' : 'en');
+
+      document.querySelectorAll('.lang-switch button').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+      });
+
+      apply(initial);
+    })();
+  </script>
 </body>
 </html>
